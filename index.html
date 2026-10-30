@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VYRA — Apps beyond ordinary</title>
+  <meta name="description" content="A digital product lab for ambitious mobile experiences. Strategy, design and engineering from first idea to next release." />
+  <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}</script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@500;600;700;800&family=Exo+2:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <!-- ===================== NAVIGATION ===================== -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#top" class="nav__brand" aria-label="App Development home">
+        <span class="nav__brand-name">APP DEVELOPMENT</span>
+        <span class="nav__brand-sub">Powered by Nexum</span>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+        <a href="#top" class="nav__link is-active">Home</a>
+        <a href="#expertise" class="nav__link">Services</a>
+        <a href="#built" class="nav__link">About Us</a>
+        <a href="#pricing" class="nav__link">Pricing</a>
+        <a href="#testimonials" class="nav__link">FAQ</a>
+        <a href="#cta" class="nav__link">Contact</a>
+      </nav>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle colour theme" title="Switch dark / light mode">
+        <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19.1v2.4M4.5 4.5l1.7 1.7M17.8 17.8l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.5 19.5l1.7-1.7M17.8 6.2l1.7-1.7"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
+      </button>
+      <a href="#cta" class="btn btn--pill nav__cta">Let's Talk</a>
+      <button class="nav__burger" id="burger" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+    <div class="nav__mobile" id="navMobile">
+      <a href="#top" class="nav__link">Home</a>
+      <a href="#expertise" class="nav__link">Services</a>
+      <a href="#built" class="nav__link">About Us</a>
+      <a href="#pricing" class="nav__link">Pricing</a>
+      <a href="#testimonials" class="nav__link">FAQ</a>
+      <a href="#cta" class="nav__link">Contact</a>
+      <a href="#cta" class="btn btn--pill">Let's Talk</a>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="hero">
+      <div class="aurora" aria-hidden="true">
+        <canvas class="aurora__canvas" data-aurora></canvas>
+        <span class="aurora__noise"></span>
+      </div>
+
+      <div class="container hero__grid">
+        <div class="hero__left">
+          <p class="eyebrow eyebrow--cyan hero__eyebrow" data-reveal>Independent App Development Studio</p>
+          <h1 class="hero__title" id="heroTitle">We Build Apps That Move Your Business Forward.</h1>
+          <p class="hero__lead" data-reveal data-delay="600">From the first spark to the next million users. We design and engineer powerful, scalable mobile experiences that people love to use.</p>
+          <div class="hero__actions" data-reveal data-delay="720">
+            <a href="#cta" class="btn btn--primary">Start Your Project</a>
+            <a href="#concept" class="btn btn--ghost">Explore Our Work</a>
+          </div>
+          <p class="hero__tagline" data-reveal data-delay="840"><span>Strategy</span><i>/</i><span>Design</span><i>/</i><span>Engineering</span></p>
+        </div>
+
+        <div class="hero__right">
+          <div class="stage" id="stage">
+            <span class="orbit"></span>
+            <span class="particle p1"></span><span class="particle p2"></span>
+            <span class="particle p3"></span><span class="particle p4"></span>
+            <span class="particle p5"></span><span class="particle p6"></span>
+
+            <!-- phone + chips grouped so chips stay locked to the phone -->
+            <div class="phonewrap">
+            <div class="phone phone--hero" data-float="2.6">
+              <div class="phone__frame">
+                <span class="phone__notch"></span>
+                <div class="phone__screen app app--aura" data-app>
+                  <div class="app__top"><span class="app__brand">aura<i>.</i></span></div>
+                  <p class="app__hello">Your money. In motion.</p>
+                  <div class="app__balance">
+                    <span class="app__label">Total Balance</span>
+                    <span class="app__amount">$24,680.50</span>
+                    <span class="app__delta">+12.8% this month</span>
+                  </div>
+                  <span class="app__chart-title">Activity overview</span>
+                  <div class="app__bars">
+                    <i style="--h:42%"></i><i style="--h:56%"></i><i style="--h:40%"></i><i style="--h:64%"></i>
+                    <i class="cy" style="--h:86%"></i><i class="cy" style="--h:70%"></i><i class="cy" style="--h:94%"></i><i class="cy" style="--h:76%"></i>
+                  </div>
+                  <div class="app__goal">
+                    <div class="app__goal-row"><span>Your next milestone</span></div>
+                    <span class="app__goal-sub">Travel fund · 82% complete</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- floating label cards -->
+            <div class="chip chip--fps" data-float="1.4">
+              <span class="chip__tag">Built to perform</span>
+              <span class="chip__big">60 fps</span>
+              <span class="chip__sub">Every interaction. Effortless.</span>
+            </div>
+            <div class="chip chip--live" data-float="1.8">
+              <span class="chip__tag">Ready for what's next</span>
+              <span class="chip__mid">Your next big thing. Live.</span>
+              <span class="dot-row"><i></i><i></i><i></i></span>
+            </div>
+            </div><!-- /phonewrap -->
+          </div>
+        </div>
+      </div>
+
+      <div class="container hero__bottom" data-reveal>
+        <span class="eyebrow">Small screens. Extraordinary possibilities.</span>
+        <span class="eyebrow eyebrow--cyan scroll-cue">Scroll to explore <i class="scroll-cue__arrow"></i></span>
+      </div>
+    </section>
+
+    <!-- ===================== 01 EXPERTISE ===================== -->
+    <section class="section" id="expertise">
+      <div class="container">
+        <header class="sec-head">
+          <span class="sec-index" data-reveal>01 / Our Expertise</span>
+          <h2 class="sec-title" data-reveal>Big ideas. Beautifully engineered.</h2>
+          <p class="sec-lead" data-reveal>A complete product team, from your first sketch to your next release.</p>
+        </header>
+        <div class="grid grid-3">
+          <article class="card svc" data-reveal data-stagger="0">
+            <span class="svc__icon"><svg viewBox="0 0 24 24"><path d="M16.5 12.6c0-2 1.6-3 1.7-3-.9-1.4-2.4-1.6-2.9-1.6-1.2-.1-2.4.7-3 .7s-1.6-.7-2.6-.7c-1.3 0-2.6.8-3.3 2-1.4 2.5-.4 6.1 1 8.1.7 1 1.5 2.1 2.5 2 1-.04 1.4-.65 2.6-.65s1.5.65 2.6.63c1.1-.02 1.8-1 2.4-2 .5-.7.8-1.5.9-1.6-.02 0-1.4-.56-1.4-2.3z"/><path d="M14.3 6.3c.6-.7.9-1.7.8-2.6-.8.03-1.8.55-2.4 1.25-.5.6-1 1.6-.85 2.5.9.07 1.85-.45 2.45-1.15z"/></svg></span>
+            <h3>iOS App Development</h3>
+            <p>Swift-powered apps crafted for iPhone and iPad, with platform-native interactions and App Store launch support.</p>
+          </article>
+          <article class="card svc" data-reveal data-stagger="1">
+            <span class="svc__icon"><svg viewBox="0 0 24 24"><rect x="6.5" y="3" width="11" height="18" rx="2.5"/><line x1="10" y1="18.2" x2="14" y2="18.2"/></svg></span>
+            <h3>Android App Development</h3>
+            <p>Fast, accessible Kotlin applications engineered for the Android ecosystem, from phones to tablets.</p>
+          </article>
+          <article class="card svc" data-reveal data-stagger="2">
+            <span class="svc__icon"><svg viewBox="0 0 24 24"><polygon points="12,3 20,7.5 12,12 4,7.5"/><polyline points="4,12.5 12,17 20,12.5"/><polyline points="4,16.5 12,21 20,16.5"/></svg></span>
+            <h3>Cross-Platform Development</h3>
+            <p>Flutter and React Native experiences that balance shared code, native performance and faster iteration.</p>
+          </article>
+          <article class="card svc" data-reveal data-stagger="3">
+            <span class="svc__icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.4"/><ellipse cx="12" cy="12" rx="9" ry="3.6"/><ellipse cx="12" cy="12" rx="9" ry="3.6" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="9" ry="3.6" transform="rotate(120 12 12)"/></svg></span>
+            <h3>UI/UX Design</h3>
+            <p>Research, product strategy, interaction design and high-fidelity prototypes that turn complexity into clarity.</p>
+          </article>
+          <article class="card svc" data-reveal data-stagger="4">
+            <span class="svc__icon"><svg viewBox="0 0 24 24"><polyline points="8,7 3,12 8,17"/><polyline points="16,7 21,12 16,17"/></svg></span>
+            <h3>Custom App Development</h3>
+            <p>Bespoke mobile products, API integrations and cloud architecture designed around your business.</p>
+          </article>
+          <article class="card svc" data-reveal data-stagger="5">
+            <span class="svc__icon"><svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M4.2 7l2.6 1.5M17.2 15.5l2.6 1.5M4.2 17l2.6-1.5M17.2 8.5l2.6-1.5"/><circle cx="12" cy="12" r="3.2"/></svg></span>
+            <h3>Maintenance &amp; Support</h3>
+            <p>Release management, monitoring, security updates and thoughtful improvements as your product grows.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 02 CONCEPT LAB ===================== -->
+    <section class="section" id="concept">
+      <div class="container">
+        <header class="sec-head">
+          <span class="sec-index" data-reveal>02 / Concept Lab</span>
+          <h2 class="sec-title" data-reveal>Made for the way we live.</h2>
+          <p class="sec-lead" data-reveal>A look inside our product imagination. Illustrative concepts exploring finance, wellbeing and everyday movement.</p>
+        </header>
+        <div class="grid grid-3">
+          <!-- Aura -->
+          <article class="concept concept--aura" data-reveal data-stagger="0">
+            <div class="concept__phone">
+              <div class="app app--aura app--mini">
+                <div class="app__top"><span class="app__brand">aura<i>.</i></span></div>
+                <p class="app__hello">Your money. In motion.</p>
+                <div class="app__balance"><span class="app__label">Total Balance</span><span class="app__amount">$24,680.50</span><span class="app__delta">+12.8% this month</span></div>
+                <span class="app__chart-title">Activity overview</span>
+                <div class="app__bars"><i style="--h:38%"></i><i style="--h:52%"></i><i style="--h:30%"></i><i style="--h:60%"></i><i class="cy" style="--h:78%"></i><i class="cy" style="--h:88%"></i></div>
+              </div>
+            </div>
+            <div class="concept__body">
+              <h3 class="concept__title">Aura / 01</h3>
+              <p class="concept__cat">Finance, without friction.&nbsp; · &nbsp;Product concept</p>
+            </div>
+          </article>
+          <!-- Forma -->
+          <article class="concept concept--forma" data-reveal data-stagger="1">
+            <div class="concept__phone">
+              <div class="app app--forma app--mini">
+                <div class="app__top"><span class="app__brand">forma<i>.</i></span></div>
+                <p class="app__hello">Make space for a better you.</p>
+                <div class="app__balance app__balance--forma"><span class="app__label">Daily Movement</span><span class="app__amount">8,420</span><span class="app__delta app__delta--f">A little better, every day</span></div>
+                <span class="app__chart-title">Weekly progress</span>
+                <div class="app__rings"><span class="ring ring--1"></span><span class="ring ring--2"></span><span class="ring ring--3"></span></div>
+              </div>
+            </div>
+            <div class="concept__body">
+              <h3 class="concept__title">Forma / 02</h3>
+              <p class="concept__cat">A healthier daily rhythm.&nbsp; · &nbsp;Product concept</p>
+            </div>
+          </article>
+          <!-- Orbit -->
+          <article class="concept concept--orbit" data-reveal data-stagger="2">
+            <div class="concept__phone">
+              <div class="app app--orbit app--mini">
+                <div class="app__top"><span class="app__brand">orbit<i>.</i></span></div>
+                <p class="app__hello">The city is yours to explore.</p>
+                <div class="app__balance app__balance--orbit"><span class="app__label">Next Departure</span><span class="app__amount">04:32</span><span class="app__delta app__delta--o">Your ride is on its way</span></div>
+                <span class="app__chart-title">Your weekly journeys</span>
+                <div class="app__map"><svg viewBox="0 0 200 70" preserveAspectRatio="none"><path d="M10 60 C 55 54, 62 22, 110 20 S 185 14, 192 8" class="route"/><circle cx="10" cy="60" r="4.5" class="pin pin--a"/><circle cx="192" cy="8" r="4.5" class="pin pin--b"/></svg></div>
+              </div>
+            </div>
+            <div class="concept__body">
+              <h3 class="concept__title">Orbit / 03</h3>
+              <p class="concept__cat">Your city. Reimagined.&nbsp; · &nbsp;Product concept</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 03 FLIGHT PLAN ===================== -->
+    <section class="section" id="process">
+      <div class="container">
+        <header class="sec-head">
+          <span class="sec-index" data-reveal>03 / The Flight Plan</span>
+          <h2 class="sec-title" data-reveal>From what if. To what's next.</h2>
+          <p class="sec-lead" data-reveal>A transparent, collaborative process. No black boxes. No disappearing acts.</p>
+        </header>
+        <div class="grid grid-3 flow">
+          <div class="flow__item" data-reveal data-stagger="0"><span class="flow__no">01</span><h3>Discovery</h3><p>Define the problem, the people and the opportunity.</p></div>
+          <div class="flow__item" data-reveal data-stagger="1"><span class="flow__no">02</span><h3>UI/UX Design</h3><p>Explore, prototype and validate the right experience.</p></div>
+          <div class="flow__item" data-reveal data-stagger="2"><span class="flow__no">03</span><h3>Development</h3><p>Build in focused sprints with demos you can use.</p></div>
+          <div class="flow__item" data-reveal data-stagger="3"><span class="flow__no">04</span><h3>Testing</h3><p>Challenge every flow, device and edge case.</p></div>
+          <div class="flow__item" data-reveal data-stagger="4"><span class="flow__no">05</span><h3>Launch</h3><p>Navigate store reviews and release with confidence.</p></div>
+          <div class="flow__item" data-reveal data-stagger="5"><span class="flow__no">06</span><h3>Support</h3><p>Monitor, learn and make the next release better.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 04 BUILT DIFFERENT ===================== -->
+    <section class="section" id="built">
+      <div class="container">
+        <header class="sec-head">
+          <span class="sec-index" data-reveal>04 / Built Different</span>
+          <h2 class="sec-title" data-reveal>Ambitious on the outside. Rock-solid underneath.</h2>
+          <p class="sec-lead" data-reveal>The invisible details are what make an extraordinary product last.</p>
+        </header>
+        <div class="grid grid-4 flow">
+          <div class="flow__item" data-reveal data-stagger="0"><span class="flow__icon"><svg viewBox="0 0 24 24"><polygon points="13,2 4,14 11,14 10,22 20,9 13,9"/></svg></span><h3>Performance</h3><p>Fast starts. Fluid gestures. Responsiveness you can feel.</p></div>
+          <div class="flow__item" data-reveal data-stagger="1"><span class="flow__icon"><svg viewBox="0 0 24 24"><polygon points="12,3 20,7.5 12,12 4,7.5"/><polyline points="4,12.5 12,17 20,12.5"/><polyline points="4,16.5 12,21 20,16.5"/></svg></span><h3>Scalability</h3><p>Architecture that grows with your product, not against it.</p></div>
+          <div class="flow__item" data-reveal data-stagger="2"><span class="flow__icon"><svg viewBox="0 0 24 24"><path d="M12 2 20 5v6c0 5-3.5 8.5-8 11-4.5-2.5-8-6-8-11V5z"/><polyline points="9,12 11,14 15,9.5"/></svg></span><h3>Security</h3><p>Thoughtful permissions, secure APIs and privacy by design.</p></div>
+          <div class="flow__item" data-reveal data-stagger="3"><span class="flow__icon"><svg viewBox="0 0 24 24"><polyline points="4,12.5 10,18 20,6"/></svg></span><h3>Quality</h3><p>Real-device testing and careful attention to every edge case.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 05 TOOLKIT ===================== -->
+    <section class="section section--tight" id="toolkit">
+      <div class="container">
+        <header class="sec-head">
+          <span class="sec-index" data-reveal>05 / Our Toolkit</span>
+          <h2 class="sec-title" data-reveal>Future-ready. Never trend-dependent.</h2>
+          <p class="sec-lead" data-reveal>The right technology for your product. Not the other way around.</p>
+        </header>
+      </div>
+      <div class="marquee" data-reveal>
+        <div class="marquee__track" id="marquee">
+          <div class="tool"><span class="tool__ic">◆</span>Swift</div>
+          <div class="tool"><span class="tool__ic">◆</span>Kotlin</div>
+          <div class="tool"><span class="tool__ic">◆</span>Flutter</div>
+          <div class="tool"><span class="tool__ic">◆</span>React</div>
+          <div class="tool"><span class="tool__ic">◆</span>Firebase</div>
+          <div class="tool"><span class="tool__ic">◆</span>Figma</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 06 PRICING ===================== -->
+    <section class="section" id="pricing">
+      <div class="container">
+        <header class="sec-head">
+          <span class="sec-index" data-reveal>06 / Invest In Your Next</span>
+          <h2 class="sec-title" data-reveal>A clear starting point. Room to go further.</h2>
+          <p class="sec-lead" data-reveal>Indicative packages in USD. Final scope, timeline and investment are agreed after discovery.</p>
+        </header>
+        <div class="grid grid-3 pricing">
+          <article class="card price" data-reveal data-stagger="0">
+            <span class="price__tier">Launchpad</span>
+            <span class="price__amt">From $8,000</span>
+            <p class="price__desc">Validate your next big idea.</p>
+            <ul class="price__list">
+              <li>Product discovery workshop</li>
+              <li>UX flows &amp; interactive prototype</li>
+              <li>Technical roadmap</li>
+              <li>2–4 week indicative timeline</li>
+            </ul>
+            <a href="#cta" class="btn btn--ghost btn--block">Discuss Launchpad</a>
+          </article>
+          <article class="card price price--featured" data-reveal data-stagger="1">
+            <span class="price__tier price__tier--pop">Most Popular / Momentum</span>
+            <span class="price__amt">From $25,000</span>
+            <p class="price__desc">Turn your vision into version one.</p>
+            <ul class="price__list">
+              <li>iOS &amp; Android MVP</li>
+              <li>Custom interface design</li>
+              <li>API &amp; backend integration</li>
+              <li>QA &amp; store submission</li>
+            </ul>
+            <a href="#cta" class="btn btn--primary btn--block">Discuss Momentum</a>
+          </article>
+          <article class="card price" data-reveal data-stagger="2">
+            <span class="price__tier">Beyond</span>
+            <span class="price__amt">Custom quote</span>
+            <p class="price__desc">Built for your next chapter.</p>
+            <ul class="price__list">
+              <li>Complex product architecture</li>
+              <li>Advanced integrations</li>
+              <li>Dedicated product team</li>
+              <li>Ongoing release partnership</li>
+            </ul>
+            <a href="#cta" class="btn btn--ghost btn--block">Discuss Beyond</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 07 TESTIMONIALS ===================== -->
+    <section class="section" id="testimonials">
+      <div class="container">
+        <header class="sec-head">
+          <span class="sec-index" data-reveal>07 / Partner Perspectives</span>
+          <h2 class="sec-title" data-reveal>Great products begin with great partnerships.</h2>
+          <p class="sec-lead" data-reveal>Sample testimonials for layout preview — replace with verified client feedback before publishing.</p>
+        </header>
+        <div class="slider" data-reveal>
+          <button class="slider__arrow slider__arrow--prev" id="prevQuote" aria-label="Previous">
+            <svg viewBox="0 0 24 24"><polyline points="15,5 8,12 15,19"/></svg>
+          </button>
+          <div class="slider__viewport">
+            <div class="slider__track" id="quoteTrack">
+              <blockquote class="quote"><p>"A team that brings the same care to the details as they do to the big picture."</p><span class="quote__src">Sample Client Feedback / Replace Before Launch</span></blockquote>
+              <blockquote class="quote"><p>"From a complex idea to an experience that simply makes sense."</p><span class="quote__src">Sample Client Feedback / Replace Before Launch</span></blockquote>
+              <blockquote class="quote"><p>"It felt like building with our own product team, not handing work over."</p><span class="quote__src">Sample Client Feedback / Replace Before Launch</span></blockquote>
+            </div>
+          </div>
+          <button class="slider__arrow slider__arrow--next" id="nextQuote" aria-label="Next">
+            <svg viewBox="0 0 24 24"><polyline points="9,5 16,12 9,19"/></svg>
+          </button>
+          <div class="slider__dots" id="quoteDots">
+            <button class="dot is-active" aria-label="Slide 1"></button>
+            <button class="dot" aria-label="Slide 2"></button>
+            <button class="dot" aria-label="Slide 3"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CTA ===================== -->
+    <section class="section cta" id="cta">
+      <div class="aurora aurora--cta" aria-hidden="true">
+        <canvas class="aurora__canvas" data-aurora></canvas>
+        <span class="aurora__noise"></span>
+      </div>
+      <div class="container cta__grid">
+        <div class="cta__left">
+          <span class="sec-index" data-reveal>Next Up / Your Next Big Thing</span>
+          <h2 class="cta__title" id="ctaTitle" data-reveal>The future fits in your hand. Let's build it.</h2>
+          <p class="cta__lead" data-reveal>Bring the ambition. We'll bring the product thinking, design craft and engineering to move it forward.</p>
+          <a href="#cta" class="btn btn--primary btn--lg" data-reveal>Let's Build Something Great</a>
+        </div>
+        <div class="cta__right">
+          <div class="stage stage--cta">
+            <div class="phone phone--cta" data-float="2.2">
+              <div class="phone__frame">
+                <span class="phone__notch"></span>
+                <div class="phone__screen app app--aura" data-app>
+                  <div class="app__top"><span class="app__brand">aura<i>.</i></span></div>
+                  <p class="app__hello">Your money. In motion.</p>
+                  <div class="app__balance"><span class="app__label">Total Balance</span><span class="app__amount">$24,680.50</span><span class="app__delta">+12.8% this month</span></div>
+                  <span class="app__chart-title">Activity overview</span>
+                  <div class="app__bars"><i style="--h:42%"></i><i style="--h:56%"></i><i style="--h:40%"></i><i style="--h:64%"></i><i class="cy" style="--h:86%"></i><i class="cy" style="--h:70%"></i><i class="cy" style="--h:94%"></i><i class="cy" style="--h:76%"></i></div>
+                  <div class="app__goal"><div class="app__goal-row"><span>Your next milestone</span></div><span class="app__goal-sub">Travel fund · 82% complete</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span class="sec-index">App Development / Powered by Nexum</span>
+      <div class="footer__links">
+        <a href="#cta" class="footer__link">Start a conversation</a>
+        <a href="#testimonials" class="footer__link">Questions &amp; answers</a>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      <span>© 2026 App Development. Powered by Nexum. Designed for what's next.</span>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
