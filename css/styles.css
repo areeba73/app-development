@@ -85,6 +85,9 @@
 :root[data-theme="light"] .concept--aura{background:linear-gradient(150deg,#e7dfff 0%,#f2f0fd 72%)}
 :root[data-theme="light"] .concept--forma{background:linear-gradient(150deg,#d6eff0 0%,#eef7f6 72%)}
 :root[data-theme="light"] .concept--orbit{background:linear-gradient(150deg,#e9ddfb 0%,#f3edfc 72%)}
+/* hero eyebrow + scroll cue need a darker shade for contrast on the light hero background */
+:root[data-theme="light"] .hero__eyebrow,
+:root[data-theme="light"] .scroll-cue{color:#0a6273}
 /* smooth theme transition on the big surfaces */
 body,.nav,.card,.concept,.tool,.slider__viewport,.slider__arrow,.chip,.footer,.flow__item,.theme-toggle{
   transition:background-color .5s var(--ease),background .5s var(--ease),color .5s var(--ease),border-color .5s var(--ease),box-shadow .5s var(--ease);
@@ -118,7 +121,9 @@ svg{display:block}
   border-bottom:1px solid transparent}
 .nav.is-scrolled{padding:12px 0;background:var(--nav-bg);backdrop-filter:blur(18px);border-bottom-color:var(--card-line)}
 .nav__inner{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gutter);display:flex;align-items:center;gap:24px}
-.nav__brand{display:flex;flex-direction:column;gap:1px;line-height:1}
+.nav__brand{display:flex;align-items:center;line-height:1}
+.nav__logo-img{height:42px;width:auto;display:block}
+.footer__logo-img{height:38px;width:auto;display:block}
 .nav__brand-name{font-family:var(--display);font-weight:700;font-size:21px;letter-spacing:.14em;color:var(--heading)}
 .nav__brand-sub{font-family:var(--label);font-weight:500;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
 
@@ -349,6 +354,7 @@ svg{display:block}
 .price{display:flex;flex-direction:column;gap:14px;padding:34px 30px}
 .price__tier{font-family:'Exo 2',sans-serif;font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
 .price__amt{font-family:var(--display);font-weight:600;font-size:34px;line-height:1;letter-spacing:-.01em;color:var(--text)}
+.price__amt small{font-family:var(--label);font-size:15px;font-weight:500;color:var(--muted);letter-spacing:0}
 .price__desc{color:var(--muted);font-size:15px}
 .price__list{list-style:none;display:flex;flex-direction:column;gap:12px;margin:8px 0 24px}
 .price__list li{position:relative;padding-left:26px;font-size:15px;color:var(--muted-2)}
@@ -390,12 +396,38 @@ svg{display:block}
 /* =========================================================
    FOOTER
    ========================================================= */
-.footer{border-top:1px solid var(--card-line);padding:56px 0 40px;background:var(--bg-2)}
-.footer__inner{display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap;padding-bottom:36px;border-bottom:1px solid var(--card-line)}
-.footer__links{display:flex;gap:32px;flex-wrap:wrap}
-.footer__link{color:var(--muted-2);font-size:15px;transition:color .25s}
-.footer__link:hover{color:var(--accent)}
-.footer__bottom{margin-top:26px;text-align:center;font-size:13px;color:var(--muted)}
+.footer{border-top:1px solid var(--card-line);padding:60px 0 30px;background:var(--bg-2)}
+
+/* CTA band */
+.footer__cta{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;
+  padding:26px 34px;border-radius:18px;margin-bottom:54px;
+  background:linear-gradient(135deg,rgba(146,91,255,.16),rgba(92,232,242,.07));border:1px solid var(--card-line)}
+.footer__cta-title{font-family:var(--display);font-weight:600;font-size:clamp(20px,2.1vw,26px);line-height:1.15;letter-spacing:-.01em;color:var(--heading)}
+.footer__cta-sub{color:var(--muted);font-size:14px;margin-top:7px}
+
+/* main grid */
+.footer__grid{display:grid;grid-template-columns:1.7fr 1fr 1fr 1.4fr;gap:40px;padding-bottom:38px;border-bottom:1px solid var(--card-line)}
+.footer__col{display:flex;flex-direction:column;gap:13px;align-items:flex-start}
+.footer__logo-img{height:38px;width:auto;display:block}
+.footer__about{color:var(--muted);font-size:14px;line-height:1.65;max-width:38ch;margin-top:2px}
+.footer__heading{font-family:var(--label);font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:3px}
+.footer__col a:not(.footer__social a){color:var(--muted-2);font-size:14px;transition:color .25s}
+.footer__col a:not(.footer__social a):hover{color:var(--accent)}
+.footer__contact-item{display:inline-flex;align-items:center;gap:10px;color:var(--muted-2);font-size:14px}
+.footer__contact-item svg{width:17px;height:17px;flex:none;fill:none;stroke:var(--accent);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+
+/* social */
+.footer__social{display:flex;gap:10px;margin-top:8px}
+.footer__social a{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+  background:var(--ghost-bg);border:1px solid var(--line);color:var(--muted-2);transition:color .25s,background .25s,border-color .25s,transform .25s}
+.footer__social a:hover{color:var(--text);background:rgba(146,91,255,.12);border-color:var(--purple-lite);transform:translateY(-2px)}
+.footer__social svg{width:17px;height:17px;fill:currentColor}
+
+/* bottom bar */
+.footer__bottom{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-top:26px;font-size:13px;color:var(--muted)}
+.footer__legal{display:flex;gap:22px;flex-wrap:wrap}
+.footer__legal a{color:var(--muted);transition:color .25s}
+.footer__legal a:hover{color:var(--accent)}
 
 /* =========================================================
    REVEAL
@@ -420,6 +452,8 @@ svg{display:block}
   .flow{row-gap:44px}
   .quote{padding:44px 40px}
   .slider__dots{bottom:16px}
+  .footer__grid{grid-template-columns:1fr 1fr;gap:30px 28px}
+  .footer__col--brand{grid-column:1 / -1}
 }
 @media (max-width:560px){
   :root{--gutter:20px}
@@ -435,7 +469,10 @@ svg{display:block}
   .hero__right{height:600px}
   .slider__arrow{width:44px;height:44px}
   .quote p{font-size:19px}
-  .footer__inner{flex-direction:column;align-items:flex-start}
+  .footer__grid{grid-template-columns:1fr;gap:28px}
+  .footer__cta{flex-direction:column;align-items:flex-start;padding:24px}
+  .footer__cta .btn{width:100%}
+  .footer__bottom{flex-direction:column;align-items:flex-start;gap:12px}
 }
 
 @media (prefers-reduced-motion:reduce){
