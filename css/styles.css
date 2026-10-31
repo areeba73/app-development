@@ -413,7 +413,7 @@ svg{display:block}
 /* =========================================================
    FOOTER
    ========================================================= */
-.footer{border-top:1px solid var(--card-line);padding:60px 0 30px;background:var(--bg-2)}
+.footer{border-top:1px solid var(--line);padding:60px 0 28px;background:var(--bg-2)}
 
 /* CTA band */
 .footer__cta{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;
@@ -423,9 +423,8 @@ svg{display:block}
 .footer__cta-sub{color:var(--muted);font-size:14px;margin-top:7px}
 
 /* main grid */
-.footer__grid{display:grid;grid-template-columns:1.7fr 1fr 1fr 1.4fr;gap:40px;padding-bottom:38px;border-bottom:1px solid var(--card-line)}
+.footer__grid{display:grid;grid-template-columns:1.7fr 1fr 1fr 1.4fr;gap:40px}
 .footer__col{display:flex;flex-direction:column;gap:13px;align-items:flex-start}
-.footer__logo-img{height:38px;width:auto;display:block}
 .footer__about{color:var(--muted);font-size:14px;line-height:1.65;max-width:38ch;margin-top:2px}
 .footer__heading{font-family:var(--label);font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:3px}
 .footer__col a:not(.footer__social a){color:var(--muted-2);font-size:14px;transition:color .25s}
