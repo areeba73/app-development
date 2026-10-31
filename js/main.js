@@ -36,6 +36,17 @@
     });
   }
 
+  /* ---------- 1c. BACK-TO-TOP (fixed floating button) ---------- */
+  var toTop = document.getElementById('toTop');
+  if (toTop) {
+    function toggleToTop() { toTop.classList.toggle('is-visible', window.scrollY > 480); }
+    window.addEventListener('scroll', toggleToTop, { passive: true });
+    toggleToTop();
+    toTop.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+    });
+  }
+
   /* ---------- 2. Split a heading into per-character spans ---------- */
   function splitChars(el) {
     var text = el.textContent; el.textContent = '';
@@ -186,11 +197,41 @@
     });
   })();
 
-  /* ---------- 5. Toolkit marquee (duplicate items for seamless loop) ---------- */
-  var track = document.getElementById('marquee');
-  if (track) {
-    track.innerHTML += track.innerHTML; // duplicate once -> 50% translate loops seamlessly
-  }
+  /* ---------- 5. Toolkit marquee (seamless, gap-free loop) ----------
+     A single copy of the pills is narrower than the viewport, so just
+     doubling leaves an empty gap at the -50% loop point. Instead we build a
+     GROUP of enough copies to always exceed the viewport, lay down two
+     identical groups, and translate by exactly one group (-50%). Duration is
+     scaled to the group width so the scroll SPEED stays constant. */
+  (function () {
+    var track = document.getElementById('marquee');
+    if (!track) return;
+    var marquee = track.closest('.marquee') || track.parentElement;
+    var SPEED = 44; // px/sec — preserves the original ticker pace
+    function build() {
+      var oneSet = track.getAttribute('data-set') || track.innerHTML;
+      track.setAttribute('data-set', oneSet);
+      // measure one set
+      track.style.animation = 'none';
+      track.innerHTML = oneSet;
+      var setW = track.scrollWidth;
+      var contW = Math.max(marquee.clientWidth, window.innerWidth || 0);
+      var perGroup = Math.max(2, Math.ceil(contW / setW) + 1); // group always wider than viewport
+      var group = '';
+      for (var i = 0; i < perGroup; i++) group += oneSet;
+      track.innerHTML = group + group; // two identical groups
+      var groupW = track.scrollWidth / 2;
+      track.style.animation = '';
+      track.style.animationDuration = (groupW / SPEED).toFixed(2) + 's';
+    }
+    build();
+    // rebuild on significant width changes so the group always covers the viewport
+    var rw;
+    window.addEventListener('resize', function () {
+      clearTimeout(rw);
+      rw = setTimeout(build, 250);
+    });
+  })();
 
   /* ---------- 6. Testimonials carousel ---------- */
   (function () {

@@ -106,8 +106,8 @@ svg{display:block}
 ::selection{background:rgba(146,91,255,.4);color:#fff}
 
 .container{width:100%;max-width:var(--maxw);margin-inline:auto;padding-inline:var(--gutter)}
-.section{position:relative;padding:120px 0}
-.section--tight{padding-bottom:120px}
+.section{position:relative;padding:52px 0}
+.section--tight{padding-bottom:52px}
 
 /* ---------- eyebrow / display helpers ---------- */
 .eyebrow{font-family:'Exo 2',sans-serif;font-size:12px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
@@ -124,6 +124,10 @@ svg{display:block}
 .nav__brand{display:flex;align-items:center;line-height:1}
 .nav__logo-img{height:42px;width:auto;display:block}
 .footer__logo-img{height:38px;width:auto;display:block}
+/* theme-aware logo swap: dark logo by default, light logo in light mode */
+.logo--light{display:none}
+:root[data-theme="light"] .logo--dark{display:none}
+:root[data-theme="light"] .logo--light{display:block}
 .nav__brand-name{font-family:var(--display);font-weight:700;font-size:21px;letter-spacing:.14em;color:var(--heading)}
 .nav__brand-sub{font-family:var(--label);font-weight:500;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
 
@@ -280,7 +284,7 @@ svg{display:block}
 /* =========================================================
    SECTION HEADERS (left aligned)
    ========================================================= */
-.sec-head{max-width:760px;margin-bottom:56px;display:flex;flex-direction:column;gap:18px;align-items:flex-start}
+.sec-head{max-width:760px;margin-bottom:32px;display:flex;flex-direction:column;gap:14px;align-items:flex-start}
 .sec-index{font-family:'Exo 2',sans-serif;font-size:12px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--accent)}
 .sec-title{font-family:var(--display);font-weight:600;font-size:clamp(30px,4.4vw,48px);line-height:1.06;letter-spacing:-.022em;color:var(--heading)}
 .sec-lead{color:var(--muted);font-size:clamp(15px,1.2vw,17px);max-width:52ch}
@@ -341,12 +345,14 @@ svg{display:block}
    TOOLKIT — marquee
    ========================================================= */
 .marquee{position:relative;width:100%;overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-.marquee__track{display:flex;gap:18px;width:max-content;animation:marquee 26s linear infinite}
+.marquee__track{display:flex;width:max-content;animation:marquee 26s linear infinite}
 .marquee:hover .marquee__track{animation-play-state:paused}
+/* trailing margin on every item (incl. the last) so translateX(-50%) loops seamlessly — no gap/pause */
 .tool{display:inline-flex;align-items:center;gap:12px;font-family:var(--display);font-weight:600;font-size:19px;white-space:nowrap;
-  padding:18px 34px;border-radius:14px;background:var(--card-bg);border:1px solid var(--card-line)}
-.tool__ic{color:var(--purple-lite);font-size:16px}
-@keyframes marquee{to{transform:translateX(calc(-50% - 9px))}}
+  padding:18px 34px;margin-right:18px;border-radius:14px;background:var(--card-bg);border:1px solid var(--card-line)}
+.tool__ic{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;flex:none}
+.tool__ic svg{width:24px;height:24px;display:block}
+@keyframes marquee{to{transform:translateX(-50%)}}
 
 /* =========================================================
    PRICING
@@ -362,6 +368,17 @@ svg{display:block}
 .price .btn{margin-top:auto}
 .price--featured{background:var(--featured-bg);border-color:rgba(161,123,255,.45);box-shadow:0 30px 80px rgba(146,91,255,.16)}
 .price--featured::before{opacity:.6}
+
+/* specialized & add-on services (custom quote) */
+.spec-head{margin:52px 0 26px;display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+.spec-heading{font-family:var(--display);font-weight:600;font-size:clamp(20px,2.2vw,26px);line-height:1.12;letter-spacing:-.01em;color:var(--heading)}
+.spec-lead{color:var(--muted);font-size:15px;max-width:62ch}
+.spec{display:flex;flex-direction:column;gap:12px;padding:26px 28px}
+.spec__top{display:flex;align-items:baseline;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.spec__name{font-family:var(--display);font-weight:600;font-size:18px;letter-spacing:-.01em;color:var(--heading)}
+.spec__amt{font-family:var(--label);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);white-space:nowrap}
+.spec__desc{color:var(--muted);font-size:14px;line-height:1.55;flex:1}
+.spec .btn{margin-top:4px}
 
 /* =========================================================
    TESTIMONIALS — slider
@@ -430,6 +447,19 @@ svg{display:block}
 .footer__legal a:hover{color:var(--accent)}
 
 /* =========================================================
+   BACK TO TOP (fixed floating button)
+   ========================================================= */
+.to-top{position:fixed;right:26px;bottom:26px;z-index:90;width:46px;height:46px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;cursor:pointer;border:1px solid transparent;
+  background:var(--grad-purple);color:#fff;box-shadow:0 10px 30px rgba(146,91,255,.32);
+  opacity:0;visibility:hidden;transform:translateY(14px);
+  transition:opacity .35s var(--ease),transform .35s var(--ease),visibility .35s,box-shadow .35s}
+.to-top.is-visible{opacity:1;visibility:visible;transform:translateY(0)}
+.to-top:hover{transform:translateY(-3px);box-shadow:0 16px 42px rgba(146,91,255,.5)}
+.to-top svg{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+@media (max-width:560px){.to-top{right:16px;bottom:16px;width:42px;height:42px}}
+
+/* =========================================================
    REVEAL
    ========================================================= */
 [data-reveal]{opacity:0;transform:translateY(32px);transition:opacity .9s var(--ease-out),transform .9s var(--ease-out)}
@@ -448,8 +478,8 @@ svg{display:block}
 }
 @media (max-width:860px){
   .grid-3,.grid-4{grid-template-columns:repeat(2,1fr)}
-  .section{padding:90px 0}
-  .flow{row-gap:44px}
+  .section{padding:44px 0}
+  .flow{row-gap:36px}
   .quote{padding:44px 40px}
   .slider__dots{bottom:16px}
   .footer__grid{grid-template-columns:1fr 1fr;gap:30px 28px}
