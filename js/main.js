@@ -254,6 +254,35 @@
     if (!reduceMotion) auto();
   })();
 
+  /* ---------- 6b. FAQ accordion ---------- */
+  (function () {
+    var items = document.querySelectorAll('.faq__item');
+    items.forEach(function (item) {
+      var q = item.querySelector('.faq__q');
+      var a = item.querySelector('.faq__a');
+      if (!q || !a) return;
+      q.addEventListener('click', function () {
+        var isOpen = item.classList.contains('is-open');
+        // close any open item (single-open accordion)
+        document.querySelectorAll('.faq__item.is-open').forEach(function (it) {
+          it.classList.remove('is-open');
+          it.querySelector('.faq__a').style.maxHeight = '';
+          it.querySelector('.faq__q').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('is-open');
+          a.style.maxHeight = a.scrollHeight + 'px';
+          q.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+    // keep an open answer sized correctly on resize
+    window.addEventListener('resize', function () {
+      var open = document.querySelector('.faq__item.is-open .faq__a');
+      if (open) open.style.maxHeight = open.scrollHeight + 'px';
+    });
+  })();
+
   /* ---------- 7. Card pointer tilt ---------- */
   if (!reduceMotion && window.matchMedia('(hover:hover)').matches) {
     document.querySelectorAll('.card').forEach(function (card) {
